@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
- root 'index#box'
+ root 'boxes#index'
 
   devise_for :admins, path_names: {
   sign_up: ''
 }
   devise_for :users
-  get '/users/limbo' => 'user#limbo'
+  get '/users/limbo' => 'users#limbo'
   resources :boxes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
