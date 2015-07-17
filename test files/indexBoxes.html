@@ -5,12 +5,12 @@
 	<meta charset="utf-8">
 	<title>barbox Boxes</title>
 	<script src="js/jquery-1.3.1.min.js"></script>
-	<!-- <script src="js/jquerymobile.min.js"></script> -->
+	<script src="js/jquerymobile.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<!-- <script type="text/javascript" src="js/slick.min.js"></script> 
+	<script type="text/javascript" src="js/slick.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/> -->
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
@@ -150,44 +150,27 @@
 
 	<div class="wrapper" style="padding-top:65px;">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-4">
-					<div class="item">
-						<a href="#"><img src="<%= @smash.image %>" alt="Whiskey Smash" title="" width="300" height="356"/></a>
-						<div class="caption">
-							<h4><%= @smash.name %></h4>
-							<p><%= @smash.description %></p>
-							<p>Price: $<%= @smash.price %></p>
-							<p>Makes <%= @smash.drink_count %> drinks</p>
-						</div>
-					</div>
-					<a href="/orders/<%= @smash.id %>" class="btn btn-default">Purchase</a>
+			<div class="item">
+				<a href="#"><img src="img/freeze/screens/whiskey-smash-cocktail-recipe-6.jpg" alt="Cycliner" title="" width="300" height="356"/></a>
+				<div class="caption">
+					<h4>Whiskey Smash</h4>
+					<p>Speak nice and easy with this timeless-yet-daring concoction of rye whiskey, artisanal simple syrup, organic lemons, and fresh mint sprigs.  No passwords necessary here.</p>
 				</div>
+			</div>
 
-				<div class="col-xs-4">
-					<div class="item">
-						<a href="#"><img src="<%= @greyhound.image %>" alt="Rosemary Greyhound" title="" width="300" height="356"/></a>
-						<div class="caption">
-							<h4><%= @greyhound.name %></h4>
-							<p><%= @greyhound.description %></p>
-							<p>Price: $<%= @greyhound.price %></p>
-							<p>Makes <%= @greyhound.drink_count %> drinks</p>
-						</div>
-					</div>
-					<a href="/orders/<%= @greyhound.id %>" class="btn btn-default">Purchase</a>
+			<div class="item">
+				<a href="#"><img src="img/freeze/screens/rosemary-greyhound-2.jpg" alt="Banana Moon" title="" width="300" height="356"/></a>
+				<div class="caption">
+					<h4>Rosemary Greyhound</h4>
+					<p>Reward yourself after a long week with this shaken up midsummer night’s classic: vodka, fresh squeezed grapefruit juice, rosemary-infused handcrafted simple syrup.  Pack your bags ‘cuz it might just take you places.</p>
 				</div>
+			</div>
 
-				<div class="col-xs-4">
-					<div class="item">
-						<a href="#"><img src="<%= @noche.image %>" alt="Noche Sombrero" title="" width="300" height="356"/></a>
-						<div class="caption">
-							<h4><%= @noche.name %></h4>
-							<p><%= @noche.description %></p>
-							<p>Price: $<%= @noche.price %></p>
-							<p>Makes <%= @noche.drink_count %> drinks</p>
-						</div>
-					</div>
-					<a href="/orders/<%= @noche.id %>" class="btn btn-default">Purchase</a>
+			<div class="item">
+				<a href="#"><img src="img/freeze/screens/mezcallemon.jpg" alt="BlueBuck" title="" width="300" height="356"/></a>
+				<div class="caption">
+					<h4>Noche Sombrero</h4>
+					<p>This diplomatic cocktail is a global thinker, but a local actor.  Combining tequila, organic maple syrup, organic limes, and club soda, would you believe us if we told you it spurred the creation of NAFTA?</p>
 				</div>
 			</div>
 
@@ -196,11 +179,23 @@
 	</div>
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<!-- <script src="js/jquerymobile.min.js"></script> -->
+	<script src="js/jquerymobile.min.js"></script>
 	<script src="js/jquery-1.3.1.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<!-- <script type="text/javascript" src="js/slick.min.js"></script> -->
+	<script type="text/javascript" src="js/slick.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+      $('.fade').slick({
+			  dots: true,
+			  infinite: true,
+			  speed: 500,
+			  fade: true,
+			  cssEase: 'linear'
+			});
+    });
+	</script>
 
 </body>
 
