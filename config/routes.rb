@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
  root 'boxes#index'
-
+get '/' => 'boxes#index'
  devise_for :admins, path_names: {
   sign_up: ''
 }
 devise_for :users
 get '/users/limbo' => 'users#limbo'
-resources :boxes
+#resources :boxes
 resources :orders
 resources :charges
 post '/charges/new' => 'charges#new'
