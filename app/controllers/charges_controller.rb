@@ -5,13 +5,34 @@ class ChargesController < ApplicationController
 		@id = get_shipping_address['box_id']
 		@box = Box.find(get_shipping_address['box_id']);
 		@current_user = current_user
-		@order = Order.create(address1: get_shipping_address['address1'])
 	end
 
 	def create
-	  # Amount in cents
+		@box = Box.find(params[:box_id])
+		@date = params[:date]
+		@time = params[:time]
+		@address1 = params[:address1]
+		@address2 = params[:address2]
+		@city = params[:city]
+		@state = params[:state]
+		@zip = params[:zip]
+		@phone = params[:phone]
+		@stripe = params[:stripeToken]
+		order = Order.create(order_number: @stripe,
+			date: @date,
+			time: @time,
+			address1: @address1,
+			address2: @address2,
+			city: @city,
+			state: @state,
+			zip: @zip,
+			phone: @phone)
+
+		@box.orders << order
+		current_user.orders << order
+	 	# Amount in cents
 	  @amount = 6000
-	  @orderid = params[:order_id]
+
 	  customer = Stripe::Customer.create(
 	    :email => 'example@stripe.com',
 	    :card  => params[:stripeToken]

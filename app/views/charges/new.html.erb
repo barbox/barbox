@@ -40,7 +40,15 @@
 				<h4>Order Total: $<%= @box.price %>0</h4>
 				<hr>
 				<%= form_tag charges_path do  %>
-				<%= hidden_field_tag :order_id, :value => @order.id %>
+				<%= hidden_field_tag :box_id, @box.id%>
+				<%= hidden_field_tag :date, @shipping_address['date'] %>
+				<%= hidden_field_tag :time, @shipping_address['time'] %>
+				<%= hidden_field_tag :address1, @shipping_address['address1'] %>
+				<%= hidden_field_tag :address2, @shipping_address['address2'] %>
+				<%= hidden_field_tag :city, @shipping_address['city'] %>
+				<%= hidden_field_tag :state, @shipping_address['state']%>
+				<%= hidden_field_tag :zip, @shipping_address['zip'] %>
+				<%= hidden_field_tag :phone, @shipping_address['phone'] %>
 				  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 				          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
 				          data-description="<%= @box.name %> Box"
