@@ -5,8 +5,13 @@
 	<title>BarBox</title>
 </head>
 <body>
+	<div class="container">
+		<div class="col-xs-6 col-xs-offset-3">
+			<div class="well">
+					<h4>Please enter your shipping address to purchase the <%= @box.name %> box:</h4>
+
 	<h1>Shipping Information</h1>
-	<%= form_for :shipping_address ,url: "/order/payment", method: "Post" do |f|%>
+	<%= form_for :shipping_address ,url: "/charges/new", method: "POST" do |f|%>
 	<div>
 		<%= f.label :address1 %></br>
 		<%= f.text_field :address1 %>
@@ -35,6 +40,7 @@
 		<%= f.label :date %></br>
 		<%= f.text_field :date , :placeholder => "yyyy-mm-dd" , :required => true, :pattern => '^[0-9]{4}\-[0-9]{1,2}\-[0-9]{1,2}$'%>
 	</div>
+	<%= f.hidden_field :box_id, :value => @box.id %>
 	<div>
 		<%= f.label :time %></br>
 		<%= f.time_field :time %>
@@ -42,6 +48,11 @@
 
 	<%= f.submit "Proceeded to Order Summary and Payment" %>
 	<% end %>
+
+			</div>
+		</div>
+	</div>
+
 
 </body>
 </html>

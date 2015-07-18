@@ -1,0 +1,53 @@
+<div class="jumbotron">
+	<h1>Order Confirmation & Payment<br>
+		<small>pay for your shit</small></h1>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-4 col-xs-offset-2">
+			<div class="well">
+				Delivery Address:
+				<hr>
+				<%= @current_user.first_name %> <%= @current_user.last_name %>
+				<br>
+				<%= @shipping_address['address1'] %>
+				<br>
+				<% if @shipping_address['address2'] != "" %>
+					<%= @shipping_address['address2'] %>
+					<br>
+				<% end %>
+				<%= @shipping_address['city'] %>
+				<br>
+				<%= @shipping_address['state'] %>
+				<br>
+				<%= @shipping_address['zip'] %>
+				<hr>
+				Phone Number: <%= @shipping_address['phone'] %>
+				<hr>
+				Delivery Date: <%= @shipping_address['date'] %>
+				<hr>
+			</div>
+		</div>
+		<div class="col-xs-4 col-xs-offset-2">
+			<div class="well">
+				<h4>Order Summary:</h4>
+				<br>
+				<p>Item: <%= @box.name %><br>
+				Shipping & Handling: $0.00<br>
+				Tax: $0.00</p>
+				<hr>
+				<h4>Order Total: $<%= @box.price %>0</h4>
+				<hr>
+				<%= form_tag charges_path do  %>
+				<%= hidden_field_tag :order_id, :value => @order.id %>
+				  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+				          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+				          data-description="<%= @box.name %> Box"
+				          data-amount="6000"></script>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+
