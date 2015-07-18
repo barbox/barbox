@@ -5,7 +5,7 @@
 
 <div class="container" style="padding-top:10px">
 	<div class="row">
-		<div class="col-xs-4 col-xs-offset-1">
+		<div class="col-xs-4 col-xs-offset-2">
 			<div class="well">
 				Delivery Address:
 				<br>
@@ -22,14 +22,16 @@
 				<%= @shipping_address['state'] %>
 				<br>
 				<%= @shipping_address['zip'] %>
-				<hr>
+				<br>
+				<br>
 				Phone Number: <%= @shipping_address['phone'] %>
-				<hr>
+				<br>
+				<br>
 				Delivery Date: <%= @shipping_address['date'] %>
 				<hr>
 			</div>
 		</div>
-		<div class="col-xs-4 col-xs-offset-2">
+		<div class="col-xs-4">
 			<div class="well">
 				<h4>Order Summary:</h4>
 				<br>
