@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>barbox Boxes</title>
+	<script src="js/jquery-1.3.1.min.js"></script>
+	<!-- <script src="js/jquerymobile.min.js"></script> -->
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<!-- <script type="text/javascript" src="js/slick.min.js"></script> 
+	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<script>
+
+		$(document).ready(function() {
+
+			//move the image in pixel
+			var move = -15;
+			
+			//zoom percentage, 1.2 =120%
+			var zoom = 1.2;
+
+			//On mouse over those thumbnail
+			$('.item').toggle(function() {
+				
+				//Set the width and height according to the zoom percentage
+				width = $('.item').width() * zoom;
+				height = $('.item').height() * zoom;
+				
+				//Move and zoom the image
+				$(this).find('img').stop(false,true).animate({'width':width, 'height':height, 'top':move, 'left':move}, {duration:200});
+				
+				//Display the caption
+				$(this).find('div.caption').stop(false,true).fadeIn(200);
+			},
+
+			function() {
+				//Reset the image
+				$(this).find('img').stop(false,true).animate({'width':$('.item').width(), 'height':$('.item').height(), 'top':'0', 'left':'0'}, {duration:100});	
+
+				//Hide the caption
+				$(this).find('div.caption').stop(false,true).fadeOut(200);
+			});
+
+		});
+
+	</script>
+	<style>
+		body {
+			font-family:arial;	
+		}
+
+		.item {
+			width:300px;
+			height:356px;	
+			border:4px solid #222;
+			border-radius: 15px;	
+			margin:5px 5px 5px 0;
+			
+			/* required to hide the image after resized */
+			overflow:hidden;
+			
+			/* for child absolute position */
+			position:relative;
+			
+			/* display div in line */
+			float:left;
+		}
+
+		.item .caption {
+			width:300px;
+			height:356px;
+			background:#000;
+			color:#fff;
+			font-weight:bold;
+				
+			/* fix it at the bottom */
+			position:absolute;
+			left:0;
+
+			/* hide it by default */
+			display:none;
+
+			/* opacity setting */
+			filter:alpha(opacity=80);    /* ie  */
+			-moz-opacity:0.8;    /* old mozilla browser like netscape  */
+			-khtml-opacity: 0.8;    /* for really really old safari */  
+			opacity: 0.8;    /* css standard, currently it works in most modern browsers like firefox,  */
+		}
+
+		.item .caption h4 {
+			text-decoration:none;
+			color:#0cc7dd;
+			font-size:16px;	
+			
+			/* add spacing and make the whole row clickable*/
+			padding:5px;
+			display:block;
+		}
+
+		.item .caption p {
+			padding:5px;	
+			margin:0;
+			font-size:10px;
+		}
+
+		img {
+			border:0;
+			
+			/* allow javascript moves the img position*/
+			position:absolute;
+		}
+
+		.clear {
+			clear:both;	
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<!-- can do navbar-fixed-bottom and navbar-inverse (for dark navbar) -->
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand">barbox</a>
+				</div>
+				<!-- make sure to reference the data-target you want to be collapsed when the window is resized.  In this case it's "example" -->
+				<div class="collapse navbar-collapse" id="example">
+					<ul class="nav navbar-nav">
+						<li><a href="#">How Does Barbox Work?</a></li>
+						<li><a href="#">Who We Are</a></li>
+						<li><a href="#">Reviews</a></li>
+						<li><a href="#">Legal Stuff</a></li>
+					</ul>
+					<!-- add the nav-bar-btn class to center the button in the navbar -->
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="wrapper" style="padding-top:65px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="item">
+						<a href="#"><img src="<%= @smash.image %>" alt="Whiskey Smash" title="" width="300" height="356"/></a>
+						<div class="caption">
+							<h4><%= @smash.name %></h4>
+							<p><%= @smash.description %></p>
+							<p>Price: $<%= @smash.price %>0</p>
+							<p>Makes <%= @smash.drink_count %> drinks</p>
+						</div>
+					</div>
+					<a href="/orders/<%= @smash.id %>" class="btn btn-default">Purchase</a>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="item">
+						<a href="#"><img src="<%= @greyhound.image %>" alt="Rosemary Greyhound" title="" width="300" height="356"/></a>
+						<div class="caption">
+							<h4><%= @greyhound.name %></h4>
+							<p><%= @greyhound.description %></p>
+							<p>Price: $<%= @greyhound.price %>0</p>
+							<p>Makes <%= @greyhound.drink_count %> drinks</p>
+						</div>
+					</div>
+					<a href="/orders/<%= @greyhound.id %>" class="btn btn-default">Purchase</a>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="item">
+						<a href="#"><img src="<%= @noche.image %>" alt="Noche Sombrero" title="" width="300" height="356"/></a>
+						<div class="caption">
+							<h4><%= @noche.name %></h4>
+							<p><%= @noche.description %></p>
+							<p>Price: $<%= @noche.price %>0</p>
+							<p>Makes <%= @noche.drink_count %> drinks</p>
+						</div>
+					</div>
+					<a href="/orders/<%= @noche.id %>" class="btn btn-default">Purchase</a>
+				</div>
+			</div>
+
+			<div class="clear"></div>
+		</div>
+	</div>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!-- <script src="js/jquerymobile.min.js"></script> -->
+	<script src="js/jquery-1.3.1.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<!-- <script type="text/javascript" src="js/slick.min.js"></script> -->
+
+</body>
+
+</html>
