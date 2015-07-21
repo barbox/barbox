@@ -3,12 +3,12 @@
 		<small>pay for your shit</small></h1>
 </div>
 
-<div class="container">
+<div class="container" style="padding-top:10px">
 	<div class="row">
-		<div class="col-xs-4 col-xs-offset-2">
+		<div class="col-md-4 col-md-offset-2 col-sm-push-6">
 			<div class="well">
 				Delivery Address:
-				<hr>
+				<br>
 				<%= @current_user.first_name %> <%= @current_user.last_name %>
 				<br>
 				<%= @shipping_address['address1'] %>
@@ -22,14 +22,17 @@
 				<%= @shipping_address['state'] %>
 				<br>
 				<%= @shipping_address['zip'] %>
-				<hr>
+				<br>
+				<br>
 				Phone Number: <%= @shipping_address['phone'] %>
-				<hr>
+				<br>
+				<br>
 				Delivery Date: <%= @shipping_address['date'] %>
 				<hr>
 			</div>
 		</div>
-		<div class="col-xs-4 col-xs-offset-2">
+		<div class="clearfix hidden-md hidden-lg"></div>
+		<div class="col-md-4 col-sm-pull-6">
 			<div class="well">
 				<h4>Order Summary:</h4>
 				<br>
