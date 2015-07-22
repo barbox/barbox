@@ -1,11 +1,14 @@
 class BoxesController < ApplicationController
 	def index
-		zip_from_user = get_zip_from_user["zip_code"].to_i
 
-		if get_zip_codes.index(zip_from_user)
-			@message = "We deliver in your area."
-		else
-			@message = "Sorry, we currently do not deliver in your area."
+		if !user_signed_in?
+			zip_from_user = get_zip_from_user["zip_code"].to_i
+
+			if get_zip_codes.index(zip_from_user)
+				@message = "We deliver in your area."
+			else
+				@message = "Sorry, we currently do not deliver in your area."
+			end
 		end
 
 		@smash = Box.find_by(name: "Classic Whiskey Smash");

@@ -7,6 +7,7 @@ get '/' => 'boxes#index'
 devise_for :users
 get '/users/limbo' => 'users#limbo'
 post '/home' => 'boxes#index'
+get '/home' => 'boxes#index'
 resources :orders
 resources :charges
 post '/charges/new' => 'charges#new'
