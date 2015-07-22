@@ -45,7 +45,7 @@
 					<%= f.hidden_field :box_id, :value => @box.id %>
 					<div>
 						<%= f.label :time %></br>
-						<%= f.time_field :time %>
+						<%= f.select :time, @delivery_times %>
 					</div>
 
 				<%= f.submit "Proceeded to Order Summary and Payment" %>

@@ -53,6 +53,6 @@ class ChargesController < ApplicationController
 	private
 
 	def get_shipping_address
-		params.require(:shipping_address).permit(:address1, :address2, :city, :state, :zip, :phone, :date, :box_id)
+		params.require(:shipping_address).permit(:address1, :address2, :city, :state, :zip, :phone, :date, :box_id, :time)
 	end
 end
