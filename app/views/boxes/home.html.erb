@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Barbox</title>
+</head>
+<body>
+	<%= form_for :zip, url: '/home', method: 'Post' do |f|  %>
+
+	<%= f.label :zip_code %>
+	<%= f.number_field :zip_code, :required => true %></br>
+	
+
+	<%= f.check_box :agreed, :required => true %>
+
+	<%= f.submit "I agree to terms" %>
+	<% end  %>
+</body>
+</html>
