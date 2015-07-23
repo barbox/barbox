@@ -5,12 +5,19 @@
 	<title>Welcome to Barbox</title>
 </head>
 <body>
+
+	<div>
+		Welcome! Barbox is currently only available within SF limits. Please enter your zip code to check availability.
+
+	</div>
 	<%= form_for :zip, url: '/home', method: 'Post' do |f|  %>
 
 	<%= f.label :zip_code %>
 	<%= f.number_field :zip_code, :required => true %></br>
 	
-
+	<div>
+		I'm 21+ years of age and I agree to the Terms of Service
+	</div>
 	<%= f.check_box :agreed, :required => true %>
 
 	<%= f.submit "I agree to terms" %>

@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 		else
 			@id = params[:id]
 			@box = Box.find(@id)
-
+			@user = current_user
 			@delivery_times = []
 
 			current_time = Time.now.hour
