@@ -1,7 +1,7 @@
 class BoxesController < ApplicationController
 	def index
 
-		if !user_signed_in?
+		if !user_signed_in? && params[:zip]
 			zip_from_user = get_zip_from_user["zip_code"].to_i
 
 			if get_zip_codes.index(zip_from_user)
