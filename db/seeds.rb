@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Box.create(name: "Old-Fashioned",
-    image: "http://i39.photobucket.com/albums/e175/indy3030/barbox/Old%20Fashioned%20Resize_zpsourjlaxo.jpeg",
+    image: "http://i39.photobucket.com/albums/e175/indy3030/barbox/old_fashioned_cocktail_1024_zpsa23ukw7s.jpg",
     description: "Speak nice and easy with this timeless-yet-bold concoction of rye whiskey, blood orange syrup, small batch bitters, lemons, and fresh mint sprigs.  No passwords necessary here.",
     ingredients: "rye, blood orange syrup, grapefruit bitters, lemon peel",
     price: 100,
