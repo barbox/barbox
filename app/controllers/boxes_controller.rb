@@ -7,7 +7,7 @@ class BoxesController < ApplicationController
 			if get_zip_codes.index(zip_from_user)
 				@message = "We deliver in your area."
 			else
-				@message = "Sorry, we currently do not deliver in your area."
+				@message = "Sorry, we currently do not deliver in your area, but feel free to browse!"
 			end
 		end
 
