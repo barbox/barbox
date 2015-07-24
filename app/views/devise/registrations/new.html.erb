@@ -1,42 +1,85 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <style>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<%= devise_error_messages! %>
-<div class="field">
-  <%= f.label :first_name %><br />
-  <%= f.text_field :first_name, autofocus: true %>
-</div>  
+    body {
+      background: url("http://i39.photobucket.com/albums/e175/indy3030/bar_zps8gr2bmz4.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
 
-<div class="field">
-  <%= f.label :last_name %><br />
-  <%= f.text_field :last_name%>
-</div>
+    .logo {
+      font-family: 'Comfortaa', cursive;
+      font-size: 42px;
+    }
 
-<div class="field">
-  <%= f.label :dob, "Date of Birth" %><br />
-  <%= f.text_field :dob%>
-</div>
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %>
-</div>
+    ul {
+      list-style-type: none;
+    }
 
-<div class="field">
-  <%= f.label :password %>
-  <% if @validatable %>
-  <em>(<%= @minimum_password_length %> characters minimum)</em>
-  <% end %><br />
-  <%= f.password_field :password, autocomplete: "off" %>
-</div>
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron" style="margin:60px 20px 0px 20px; border-radius:0px;">
+      <div class="row">
+        <div class="text-center">
+          <h3 class="logo">barbox</h3>
+          <p>Sign up</p>
+        </div>
+        <div class="col-lg-4 col-lg-offset-2 text-center">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <div class="field">
+              <%= f.label :first_name %><br />
+              <%= f.text_field :first_name, autofocus: true %>
+            </div>  
 
-<div class="field">
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: "off" %>
-</div>
+            <div class="field">
+              <%= f.label :last_name %><br />
+              <%= f.text_field :last_name%>
+            </div>
 
-<div class="actions">
-  <%= f.submit "Sign up" %>
-</div>
-<% end %>
+            <div class="field">
+              <%= f.label :dob, "Date of Birth"%><br />
+              <%= f.text_field :dob, :placeholder => "YYYY-MM-DD" %>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center">
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password %>
+              <% if @validatable %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+        </div>
+      </div>
+      <br>
+      <div class="row text-center">
+        <%= devise_error_messages! %>
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 
+
+
+
+</body>
+</html>
