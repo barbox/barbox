@@ -15,13 +15,3 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap"
-
-@media (max-width: 480px) { 
-       body {
-         font-size: 11px;
-       }
-
-       .hidden-phone {
-          display: block;
-       }
-   }
