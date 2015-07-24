@@ -11,8 +11,8 @@ class BoxesController < ApplicationController
 			end
 		end
 
-		@smash = Box.find_by(name: "Classic Whiskey Smash");
-		@noche = Box.find_by(name: "Noche Sombrero");
+		@smash = Box.find_by(name: "Old-Fashioned");
+		@noche = Box.find_by(name: "Cranberry Basil Julep");
 		@greyhound = Box.find_by(name: "Rosemary Greyhound");
 
 		render :index
