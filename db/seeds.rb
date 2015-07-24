@@ -6,21 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Box.create(name: "Classic Whiskey Smash",
-    image: "http://i39.photobucket.com/albums/e175/indy3030/barbox/whiskey-smash-cocktail-recipe-6_zps1ufxm6e4.jpg",
-    description: "Speak nice and easy with this timeless-yet-daring concoction of rye whiskey, artisanal simple syrup, organic lemons, and fresh mint sprigs.  No passwords necessary here.",
-    ingredients: "rye, lemon, simple syrup, mint",
-    price: 60,
+Box.create(name: "Old-Fashioned",
+    image: "http://i39.photobucket.com/albums/e175/indy3030/barbox/old_fashioned_cocktail_1024_zpsa23ukw7s.jpg",
+    description: "Speak nice and easy with this timeless-yet-bold concoction of rye whiskey, blood orange syrup, small batch bitters, lemons, and fresh mint sprigs.  No passwords necessary here.",
+    ingredients: "rye, blood orange syrup, grapefruit bitters, lemon peel",
+    price: 100,
     drink_count: 12)
-Box.create(name: "Noche Sombrero",
-    image: "http://i39.photobucket.com/albums/e175/indy3030/barbox/mezcallemon_zpsl1jil56t.jpg",
-    description: "This diplomatic cocktail is a global thinker, but a local actor.  Combining tequila, organic maple syrup, organic limes, and club soda, would you believe us if we told you it spurred the creation of NAFTA?",
-    ingredients: "mezcal, lemon, honey syrup, club soda",
-    price: 60,
+Box.create(name: "Cranberry Basil Julep",
+    image: "http://i39.photobucket.com/albums/e175/indy3030/barbox/Basil%20Cranberry%20resize_zpswhi2zbdx.jpeg",
+    description: "This subtly sweet-and-spicy cocktail comes with fresh basil, not-so-simple syrups made from real jalapenos and cranberries, lime juice, and smoky mezcal to tie it all together. It’s perfectly complicated, just like your relationship status.",
+    ingredients: "mezcal, cranberry syrup, jalapeño syrup, basil leaves, lime",
+    price: 100,
     drink_count: 12)
 Box.create(name: "Rosemary Greyhound",
     image: "http://i39.photobucket.com/albums/e175/indy3030/barbox/rosemary-greyhound-2_zps9ofy8uen.jpg",
     description: "Reward yourself after a long week with this shaken up midsummer night’s classic: vodka, fresh squeezed grapefruit juice, rosemary-infused handcrafted simple syrup.  Pack your bags ‘cuz it might just take you places.",
     ingredients: "vodka, grapefruit, rosemary syrup",
-    price: 60,
+    price: 100,
     drink_count: 12)

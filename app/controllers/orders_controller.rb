@@ -6,10 +6,13 @@ class OrdersController < ApplicationController
 		else
 			@id = params[:id]
 			@box = Box.find(@id)
-
+			@user = current_user
 			@delivery_times = []
 
 			current_time = Time.now.hour
+			if current_time < 10 
+				current_time = 10
+			end
 
 			while current_time < 24 do
 

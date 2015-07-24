@@ -7,9 +7,11 @@ get '/' => 'boxes#index'
 devise_for :users
 get '/users/limbo' => 'users#limbo'
 post '/home' => 'boxes#index'
+get '/home' => 'boxes#index'
 resources :orders
 resources :charges
 post '/charges/new' => 'charges#new'
+get '/admins/orders' => 'admins#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

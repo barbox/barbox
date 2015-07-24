@@ -1,15 +1,18 @@
 class BoxesController < ApplicationController
 	def index
-		zip_from_user = get_zip_from_user["zip_code"].to_i
 
-		if get_zip_codes.index(zip_from_user)
-			@message = "We deliver in your area."
-		else
-			@message = "Sorry, we currently do not deliver in your area."
+		if !user_signed_in? && params[:zip]
+			zip_from_user = get_zip_from_user["zip_code"].to_i
+
+			if get_zip_codes.index(zip_from_user)
+				@message = "We deliver in your area."
+			else
+				@message = "Sorry, we currently do not deliver in your area, but feel free to browse!"
+			end
 		end
 
-		@smash = Box.find_by(name: "Classic Whiskey Smash");
-		@noche = Box.find_by(name: "Noche Sombrero");
+		@oldfashion = Box.find_by(name: "Old-Fashioned");
+		@julep = Box.find_by(name: "Cranberry Basil Julep");
 		@greyhound = Box.find_by(name: "Rosemary Greyhound");
 
 		render :index
