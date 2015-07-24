@@ -5,10 +5,43 @@
 	<title>Barbox Admin</title>
 </head>
 <body>
-	<% @orders.each do |order| %>
-		<div>
-			
+	<div class="container">
+		<div class="well">
+			<!-- just like with colored buttons, you can color-code your cells or rows within tables as well -->
+			<table class="table table-striped table-bordered table-hover table-condensed">
+				<tr>
+					<td class="active"><b>Order Number</b></td>
+					<td class="success"><b>Del. Date</b></td>
+					<td class="warning"><b>Del. Time</b></td>
+					<td class="warning"><b>Address 1</b></td>
+					<td class="warning"><b>Address 2</b></td>
+					<td class="warning"><b>City</b></td>
+					<td class="warning"><b>State</b></td>
+					<td class="warning"><b>Zip</b></td>
+					<td class="warning"><b>Phone</b></td>
+					<td class="warning"><b>User ID</b></td>
+					<td class="warning"><b>Box ID</b></td>
+					<td class="warning"><b>Date Ordered</b></td>
+				</tr>
+				<% @orders.each do |order| %>
+				<tr>
+					<td>order.order_number</td>
+					<td>order.date</td>
+					<td>order.time</td>
+					<td>order.address1</td>
+					<td>order.address2</td>
+					<td>order.city</td>
+					<td>order.state</td>
+					<td>order.zip</td>
+					<td>order.phone</td>
+					<td>order.user_id</td>
+					<td>order.box_id</td>
+					<td>order.created_at</td>
+				</tr>
+				<% end %>
+			</table>
+			<!-- check out http://getbootstrap.com/css/#tables-responsive for responsive tables (ex. custom borders for column headers) -->
 		</div>
-	<% end %>
+	</div>
 </body>
 </html>
