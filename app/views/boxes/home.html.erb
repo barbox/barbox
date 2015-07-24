@@ -3,24 +3,54 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Welcome to Barbox</title>
+	<style>
+		body {
+			background: url("http://i39.photobucket.com/albums/e175/indy3030/bar_zps8gr2bmz4.jpg") no-repeat center center fixed;
+			background-size: cover;
+		}
+
+		.logo {
+			font-family: 'Comfortaa', cursive;
+			font-size: 42px;
+		}
+
+		.caption {
+			width:250px;
+			height:306px;
+			margin:5px 5px 5px 0;	
+			background-color: lightgrey;
+			color:#fff;
+			font-weight:bold;
+				
+			/* fix it at the bottom */
+			position:absolute;
+			left:0;		}
+	</style>
 </head>
 <body>
+	<div class="container">
+		<div class="jumbotron" style="margin:60px 20px 20px 20px; border-radius:0px;">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h3 class="logo">barbox</h3>
+					<br>
+					<br>
+					<p>Welcome! Barbox is currently only available within SF limits. Please enter your zip code to check availability.<br>
 
-	<div>
-		Welcome! Barbox is currently only available within SF limits. Please enter your zip code to check availability.
+					<small><%= form_for :zip, url: '/home', method: 'Post' do |f|  %>
 
+					<%= f.label :zip_code %>
+					<%= f.number_field :zip_code, :required => true %></br>
+		
+					I'm 21+ years of age<br>
+						<%= f.check_box :agreed, :required => true %>
+						<%= f.submit "I agree to terms" %></small></p>
+					<% end  %>
+				</div>
+			</div>
+		</div>
 	</div>
-	<%= form_for :zip, url: '/home', method: 'Post' do |f|  %>
 
-	<%= f.label :zip_code %>
-	<%= f.number_field :zip_code, :required => true %></br>
-	
-	<div>
-		I'm 21+ years of age and I agree to the Terms of Service
-	</div>
-	<%= f.check_box :agreed, :required => true %>
 
-	<%= f.submit "I agree to terms" %>
-	<% end  %>
 </body>
 </html>

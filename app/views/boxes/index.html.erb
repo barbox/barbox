@@ -8,52 +8,39 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-	<script>
-
-		$(document).ready(function() {
-
-			//move the image in pixel
-			var move = -15;
-			
-			//zoom percentage, 1.2 =120%
-			var zoom = 1.2;
-
-			//On mouse over those thumbnail
-			$('.item').toggle(function() {
-				
-				//Set the width and height according to the zoom percentage
-				width = $('.item').width() * zoom;
-				height = $('.item').height() * zoom;
-				
-				//Move and zoom the image
-				$(this).find('img').stop(false,true).animate({'width':width, 'height':height, 'top':move, 'left':move}, {duration:200});
-				
-				//Display the caption
-				$(this).find('div.caption').stop(false,true).fadeIn(200);
-			},
-
-			function() {
-				//Reset the image
-				$(this).find('img').stop(false,true).animate({'width':$('.item').width(), 'height':$('.item').height(), 'top':'0', 'left':'0'}, {duration:100});	
-
-				//Hide the caption
-				$(this).find('div.caption').stop(false,true).fadeOut(200);
-			});
-
-		});
-
-	</script>
 	<style>
 		body {
-			font-family:arial;	
+			font-family:arial;
+			background: url("http://i39.photobucket.com/albums/e175/indy3030/bar_zps8gr2bmz4.jpg") no-repeat center center fixed;
+			background-size: cover;
+		}
+
+		.opaque-navbar {
+	    background-color: rgba(0,0,0,0.5);
+	  /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
+	    height: 60px;
+	    border-bottom: 0px;
+	    transition: background-color .5s ease 0s;
+		}
+
+		.opaque-navbar.opaque {
+	    background-color: black;
+	    height: 60px;
+	    transition: background-color .5s ease 0s;
+		}
+
+		.logo {
+			font-family: 'Comfortaa', cursive;
+			font-size: 30px;
+		}
+
+		ul.dropdown-menu {
+		    background-color: black;
 		}
 
 		.item {
 			width:300px;
-			height:356px;	
-			border:4px solid #222;
-			border-radius: 15px;	
-			margin:5px 5px 5px 0;
+			height:364px;	
 			
 			/* required to hide the image after resized */
 			overflow:hidden;
@@ -68,6 +55,9 @@
 		.item .caption {
 			width:300px;
 			height:356px;
+			margin:5px 5px 5px 0;	
+			border-width: 0px;
+			border-radius: 15px;
 			background:#000;
 			color:#fff;
 			font-weight:bold;
@@ -97,14 +87,28 @@
 		}
 
 		.item .caption p {
-			padding:5px;	
-			margin:0;
-			font-size:10px;
+			padding:10px;	
+			margin-top:100px;
+			font-size:12px;
+			color: lightgrey;
+		}
+
+		.descriptions {
+			font-size: 15px;
+		}
+
+		.nameprice {
+			color: lightgrey;
+		}
+
+		.purchbtns {
+			margin-top: 5px;
 		}
 
 		img {
-			border:0;
-			
+			border:4px solid #222;
+			border-radius: 15px;	
+			margin:5px 5px 5px 0;			
 			/* allow javascript moves the img position*/
 			position:absolute;
 		}
@@ -118,16 +122,14 @@
 <body>
 
 	<header>
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<!-- can do navbar-fixed-bottom and navbar-inverse (for dark navbar) -->
-			<div class="container">
+		<div class="navbar navbar-default navbar-fixed-top opaque-navbar">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="#" class="navbar-brand">barbox</a>
+					<a href="#" class="navbar-brand logo">barbox</a>
 				</div>
 				<!-- make sure to reference the data-target you want to be collapsed when the window is resized.  In this case it's "example" -->
 				<div class="collapse navbar-collapse" id="example">
@@ -139,58 +141,116 @@
 					</ul>
 					<!-- add the nav-bar-btn class to center the button in the navbar -->
 				</div>
-			</div>
 		</div>
 	</header>
+	
 
-	<div class="wrapper" style="padding-top:65px;">
+
+	<div class="wrapper" style="padding-top:85px;">
 		<div class="container">
-			<div class="row">
+			<div class="row-fluid">
 				<div class="col-lg-4">
-					<div class="item">
-						<a href="#"><img src="<%= @smash.image %>" alt="Whiskey Smash" title="" width="300" height="356"/></a>
-						<div class="caption">
-							<h4><%= @smash.name %></h4>
-							<p><%= @smash.description %></p>
-							<p>Price: $<%= @smash.price %>0</p>
-							<p>Makes <%= @smash.drink_count %> drinks</p>
+					<div class="container">
+						<div class="item">
+							<a href="#"><img src="<%= @smash.image %>" alt="Whiskey Smash" title="" width="300" height="356"/></a>
+							<div class="caption text-center">
+								<p><%= @smash.description %><br>
+									<br>
+								Makes <%= @smash.drink_count %> drinks</p>
+							</div>
 						</div>
 					</div>
-					<a href="/orders/<%= @smash.id %>" class="btn btn-default">Purchase</a>
+					<div class="text-center">
+						<a href="/orders/<%= @smash.id %>" class="btn btn-default purchbtns">order now</a><br>
+						<h4 class="nameprice"><%= @smash.name %> $<%= @smash.price %>0</h4>
+					</div>
+				</div>
+				
+				
+				<div class="col-lg-4">
+					<div class="container">
+						<div class="item">
+							<a href="#"><img src="<%= @greyhound.image %>" alt="Rosemary Greyhound" title="" width="300" height="356"/></a>
+							<div class="caption text-center">
+								<p><%= @greyhound.description %><br>
+									<br>
+								Makes <%= @greyhound.drink_count %> drinks</p>
+							</div>
+						</div>
+					</div>
+					<div class="text-center">
+						<a href="/orders/<%= @greyhound.id %>" class="btn btn-default purchbtns">order now</a><br>
+						<h4 class="nameprice"><%= @greyhound.name %> $<%= @greyhound.price %>0</h4>
+					</div>
 				</div>
 
+				
 				<div class="col-lg-4">
-					<div class="item">
-						<a href="#"><img src="<%= @greyhound.image %>" alt="Rosemary Greyhound" title="" width="300" height="356"/></a>
-						<div class="caption">
-							<h4><%= @greyhound.name %></h4>
-							<p><%= @greyhound.description %></p>
-							<p>Price: $<%= @greyhound.price %>0</p>
-							<p>Makes <%= @greyhound.drink_count %> drinks</p>
-						</div>
+					<div class="container">
+						<div class="item">
+							<a href="#"><img src="<%= @noche.image %>" alt="Noche Sombrero" title="" width="300" height="356"/></a>
+							<div class="caption text-center">
+								<p><%= @noche.description %><br>
+									<br>
+								Makes <%= @noche.drink_count %> drinks</p>
+							</div>
+						</div>	
 					</div>
-					<a href="/orders/<%= @greyhound.id %>" class="btn btn-default">Purchase</a>
-				</div>
-
-				<div class="col-lg-4">
-					<div class="item">
-						<a href="#"><img src="<%= @noche.image %>" alt="Noche Sombrero" title="" width="300" height="356"/></a>
-						<div class="caption">
-							<h4><%= @noche.name %></h4>
-							<p><%= @noche.description %></p>
-							<p>Price: $<%= @noche.price %>0</p>
-							<p>Makes <%= @noche.drink_count %> drinks</p>
-						</div>
+					<div class="text-center">
+						<a href="/orders/<%= @noche.id %>" class="btn btn-default purchbtns">order now</a><br>
+						<h4 class="nameprice"><%= @noche.name %> $<%= @noche.price %>0</h4>
 					</div>
-					<a href="/orders/<%= @noche.id %>" class="btn btn-default">Purchase</a>
 				</div>
 			</div>
 
 			<div class="clear"></div>
 		</div>
 	</div>
-	
-	<div><%= @message %> </div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<div style="color:lightgrey;"><%= @message %> </div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+		$(document).ready(function() {
+
+			//move the image in pixel
+			var move = -15;
+			
+			//zoom percentage, 1.2 =120%
+			// var zoom = 1.2;
+
+			//On mouse over those thumbnail
+			$('.item').toggle(function() {
+				
+				//Set the width and height according to the zoom percentage
+				// width = $('.item').width() * zoom;
+				// height = $('.item').height() * zoom;
+				
+				//Move and zoom the image
+				// $(this).find('img').stop(false,true).animate({'width':width, 'height':height, 'top':move, 'left':move}, {duration:200});
+				
+				//Display the caption
+				$(this).find('div.caption').stop(false,true).fadeIn(200);
+			},
+
+			function() {
+				//Reset the image
+				// $(this).find('img').stop(false,true).animate({'width':$('.item').width(), 'height':$('.item').height(), 'top':'0', 'left':'0'}, {duration:100});	
+
+				//Hide the caption
+				$(this).find('div.caption').stop(false,true).fadeOut(200);
+			});
+
+		});
+
+	</script>
+
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<!-- <script src="js/jquerymobile.min.js"></script> -->
 	<script src="js/jquery-1.3.1.min.js"></script>
