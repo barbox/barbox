@@ -32,6 +32,8 @@ gem 'devise'
 # gem 'unicorn'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+gem 'jquery-ui-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
