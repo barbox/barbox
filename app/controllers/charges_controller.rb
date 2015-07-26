@@ -35,7 +35,7 @@ class ChargesController < ApplicationController
 		UserMailer.paid_email(current_user, @box, @time).deliver_now
 		UserMailer.admin_email(admin, order, current_user, @box).deliver_now
 	 	# Amount in cents
-	 	@amount = 6000
+	 	@amount = 10000
 
 	 	customer = Stripe::Customer.create(
 	 		:email => 'example@stripe.com',
