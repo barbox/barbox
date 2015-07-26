@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 	# before_action :authenticate_user!
 	def show
 		unless user_signed_in?
-			redirect_to "/users/limbo"
+			redirect_to "/users/sign_in"
 		else
 			@id = params[:id]
 			@box = Box.find(@id)
