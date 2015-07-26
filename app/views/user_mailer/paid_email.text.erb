@@ -2,3 +2,10 @@ Hi, <%= @user.first_name %>
 ===============================================
  
 Thank you for purchasing <%= @box.name %> box. The box will be arriving between <%= @time %>.
+
+	Delivery address: <%= @order.address1 %> 
+	<%= @order.address2 %>
+	<%= @order.city %>, <%= @order.state %> <%= @order.zip %>
+
+	Delivery date: <%= @order.date %>
+	Delivery time:	<%= @order.time %>

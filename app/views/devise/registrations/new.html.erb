@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Sign Up</title>
+  <link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
   <style>
 
     body {
@@ -30,8 +31,7 @@
           <h3 class="logo">barbox</h3>
           <p>Sign up</p>
         </div>
-        <div class="col-lg-4 col-lg-offset-2 text-center">
-
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
             <div class="field">
               <%= f.label :first_name %><br />
               <%= f.text_field :first_name, autofocus: true %>
@@ -46,8 +46,7 @@
               <%= f.label :dob, "Date of Birth"%><br />
               <%= f.text_field :dob, :placeholder => "YYYY-MM-DD" %>
             </div>
-        </div>
-        <div class="col-lg-4 text-center">
+
             <div class="field">
               <%= f.label :email %><br />
               <%= f.email_field :email, autofocus: true %>
