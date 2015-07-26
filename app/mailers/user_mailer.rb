@@ -1,10 +1,11 @@
 class UserMailer < ApplicationMailer
 	default from: 'barboxapp@gmail.com'
 
-	def paid_email(user, box, time)
+	def paid_email(user, box, time, order)
 		@user = user
 		@box = box
-		@time
+		@order = order
+		@time = time
 		mail(to: @user.email, subject: 'Barbox payment reciept')
 	end
 
