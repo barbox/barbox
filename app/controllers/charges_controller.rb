@@ -30,10 +30,9 @@ class ChargesController < ApplicationController
 
 		@box.orders << order
 		current_user.orders << order
-		admin = Admin.find(1)
 		
 		UserMailer.paid_email(current_user, @box, @time, order).deliver_now
-		UserMailer.admin_email(admin, order, current_user, @box).deliver_now
+		UserMailer.admin_email(order, current_user, @box).deliver_now
 	 	# Amount in cents
 	 	@amount = 10000
 
