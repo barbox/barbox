@@ -121,91 +121,80 @@
 </head>
 
 <body>
+<nav id="myNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand logo" href="#">barbox</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="nav navbar-nav">
+				<li><a href="#">How Does Barbox Work?</a></li>
+				<li><a href="#">Who We Are</a></li>
+				<li><a href="#">Reviews</a></li>
+				<li><a href="#">Legal Stuff</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>	
 
-	<header>
-		<div class="navbar navbar-default navbar-fixed-top opaque-navbar">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a href="#" class="navbar-brand logo">barbox</a>
-				</div>
-				<!-- make sure to reference the data-target you want to be collapsed when the window is resized.  In this case it's "example" -->
-				<div class="collapse navbar-collapse" id="example">
-					<ul class="nav navbar-nav">
-						<li><a href="#">How Does Barbox Work?</a></li>
-						<li><a href="#">Who We Are</a></li>
-						<li><a href="#">Reviews</a></li>
-						<li><a href="#">Legal Stuff</a></li>
-					</ul>
-					<!-- add the nav-bar-btn class to center the button in the navbar -->
-				</div>
-		</div>
-	</header>
+
 	
-
-
-	<div class="wrapper" style="padding-top:85px;">
-		<div class="container">
-			<div class="row-fluid">
-				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-					<div class="container">
-						<div class="item">
-							<a href="#"><img src="<%= @oldfashion.image %>" alt="Whiskey Smash" title="" width="300" height="356"/></a>
-							<div class="caption text-center">
-								<p><%= @oldfashion.description %><br>
-									<br>
-								Makes <%= @oldfashion.drink_count %> drinks</p>
-							</div>
-						</div>
-					</div>
-					<div class="text-center">
-						<a href="/orders/<%= @oldfashion.id %>" class="btn btn-default purchbtns">order now</a><br>
-						<h4 class="nameprice"><%= @oldfashion.name %> $<%= @oldfashion.price %>0</h4>
+	<div class="container" style="padding-top:85px;">
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<div class="item">
+					<a href="#"><img src="<%= @oldfashion.image %>" alt="Whiskey Smash" title="" width="300" height="356"/></a>
+					<div class="caption text-center">
+						<p><%= @oldfashion.description %><br>
+							<br>
+						Makes <%= @oldfashion.drink_count %> drinks</p>
 					</div>
 				</div>
-				
-				
-				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-					<div class="container">
-						<div class="item">
-							<a href="#"><img src="<%= @greyhound.image %>" alt="Rosemary Greyhound" title="" width="300" height="356"/></a>
-							<div class="caption text-center">
-								<p><%= @greyhound.description %><br>
-									<br>
-								Makes <%= @greyhound.drink_count %> drinks</p>
-							</div>
-						</div>
-					</div>
-					<div class="text-center">
-						<a href="/orders/<%= @greyhound.id %>" class="btn btn-default purchbtns">order now</a><br>
-						<h4 class="nameprice"><%= @greyhound.name %> $<%= @greyhound.price %>0</h4>
-					</div>
-				</div>
-
-				
-				<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
-					<div class="container">
-						<div class="item">
-							<a href="#"><img src="<%= @julep.image %>" alt="Noche Sombrero" title="" width="300" height="356"/></a>
-							<div class="caption text-center">
-								<p><%= @julep.description %><br>
-									<br>
-								Makes <%= @julep.drink_count %> drinks</p>
-							</div>
-						</div>	
-					</div>
-					<div class="text-center">
-						<a href="/orders/<%= @julep.id %>" class="btn btn-default purchbtns">order now</a><br>
-						<h4 class="nameprice"><%= @julep.name %> $<%= @julep.price %>0</h4>
-					</div>
+				<div class="text-center">
+					<a href="/orders/<%= @oldfashion.id %>" class="btn btn-default purchbtns">order now</a><br>
+					<h4 class="nameprice"><%= @oldfashion.name %> $<%= @oldfashion.price %>0</h4>
 				</div>
 			</div>
-
-			<div class="clear"></div>
+			<div class="clearfix hidden-md hidden-lg"></div>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<div class="item">
+					<a href="#"><img src="<%= @greyhound.image %>" alt="Rosemary Greyhound" title="" width="300" height="356"/></a>
+					<div class="caption text-center">
+						<p><%= @greyhound.description %><br>
+							<br>
+						Makes <%= @greyhound.drink_count %> drinks</p>
+					</div>
+				</div>
+				<div class="text-center">
+					<a href="/orders/<%= @greyhound.id %>" class="btn btn-default purchbtns">order now</a><br>
+					<h4 class="nameprice"><%= @greyhound.name %> $<%= @greyhound.price %>0</h4>
+				</div>
+			</div>
+			<div class="clearfix hidden-md hidden-lg"></div>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+				<div class="item">
+					<a href="#"><img src="<%= @julep.image %>" alt="Noche Sombrero" title="" width="300" height="356"/></a>
+					<div class="caption text-center">
+						<p><%= @julep.description %><br>
+							<br>
+						Makes <%= @julep.drink_count %> drinks</p>
+					</div>
+				</div>
+				<div class="text-center">
+					<a href="/orders/<%= @julep.id %>" class="btn btn-default purchbtns">order now</a><br>
+					<h4 class="nameprice"><%= @julep.name %> $<%= @julep.price %>0</h4>
+				</div>
+			</div>
 		</div>
+		<div class="clear"></div>
 	</div>
 
 	<div class="container">
@@ -253,11 +242,9 @@
 	</script>
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<!-- <script src="js/jquerymobile.min.js"></script> -->
 	<script src="js/jquery-1.3.1.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<!-- <script type="text/javascript" src="js/slick.min.js"></script> -->
 
 </body>
 
