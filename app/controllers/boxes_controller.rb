@@ -1,6 +1,8 @@
 class BoxesController < ApplicationController
 	def index
 
+		#when a user enters a zip code when they navigate from the landing page,
+		#the home page will say if we deliver in your zip code or not.
 		if !user_signed_in? && params[:zip]
 			zip_from_user = get_zip_from_user["zip_code"].to_i
 
@@ -24,6 +26,7 @@ class BoxesController < ApplicationController
 
 	private
 
+	#list of zipcodes that we deliver to
 	def get_zip_codes
 		zips = [94102, 94103, 94104, 94105, 94107, 94108, 94109,
 				  94110, 94111, 94114, 94115, 94117, 94118, 94121,

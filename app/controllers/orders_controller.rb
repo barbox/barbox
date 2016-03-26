@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
 	# before_action :authenticate_user!
+
+	#when placing orders, barbox only delivers from 12pm to 2am. So delivery times
+	#available need to be adjusted when time changes.
 	def show
 		unless user_signed_in?
 			redirect_to "/users/limbo"

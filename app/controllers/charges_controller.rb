@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
-
+	#gets the shipping address and barbox information and renders
+	#the order summary page before payment is made
 	def new
 		@shipping_address = get_shipping_address
 		@id = get_shipping_address['box_id']
@@ -7,6 +8,7 @@ class ChargesController < ApplicationController
 		@current_user = current_user
 	end
 
+	#creates the order once payment has been made using Stripe API
 	def create
 		@box = Box.find(params[:box_id])
 		@date = params[:date]
